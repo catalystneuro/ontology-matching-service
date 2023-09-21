@@ -26,7 +26,9 @@ class Payload(BaseModel):
     text_to_embed: Optional[str] = None
     
 origins = [
-    "http://localhost:3000",  # Allow frontend origin
+    "http://localhost:3000",  # Allow local frontend origin
+    "http://16.171.225.165:3000",  # Allow aws frontend origin
+
 ]
 
 app = FastAPI()

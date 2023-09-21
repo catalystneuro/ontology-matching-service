@@ -12,7 +12,7 @@ function App() {
         setIsLoading(true);
         setData([]); // Clear the previous results
         try {
-            const response = await fetch(`http://localhost:8000/get_ontology_matches/?text=${encodeURIComponent(text)}`);
+            const response = await fetch(`http://13.51.165.148:8000/get_ontology_matches/?text=${encodeURIComponent(text)}`); // This should be changed by local server if needed
             const result = await response.json();
             setData(result);
         } catch (error) {
