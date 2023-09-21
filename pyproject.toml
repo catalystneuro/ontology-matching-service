@@ -1,0 +1,59 @@
+[project]
+name = "ontology_matching_service"
+version = "0.1.0"
+description = "Your project description"
+authors = [
+  {name="Heberto Mayorquin", email="h.mayorquin@gmail.com"}
+]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10,<4.0"
+classifiers = [
+    "Programming Language :: Python :: 3 :: Only",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Operating System :: OS Independent"
+]
+
+
+dependencies = [
+    "qdrant_client",
+    "langchain",
+    "openai",
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "tiktoken",
+]
+
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src", "app"]
+
+[tool.black]
+line-length = 120
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | venv
+  | html
+  | htmlcov
+  | md
+)/
+'''

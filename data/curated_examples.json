@@ -1,0 +1,266 @@
+{
+    "papers": [
+        {
+            "title": "Oxytocin neurons enable social transmission of maternal behaviour",
+            "text_excerpt": "This test was used for the initial screening of dams and virgin female mice. In addition, outside of the spontaneous home cage behaviours, we specifically monitored pup retrieval every 24 h by the virgin females. We placed the female mouse to be tested in a behavioural arena (38 × 30 × 15 cm) containing bedding and nesting material; the female was alone, without contact with other animals. Each animal was given 20 min to acclimatize before each testing session began. The entire litter (ranging from 3 to 7 P1–4 pups) were grouped in a corner of the arena and covered with nesting material, and the adult female given an additional 2 min of acclimatization (pup group size did not affect retrieval behaviour; Extended Data Fig. 2c). One pup was removed from the nest and placed in an opposite corner of the arena. The experimental female was given 2 min per trial to retrieve the displaced pup and return it back to the nest; if the displaced pup was not retrieved within 2 min, the pup was returned to the nest and the trial was scored as a failure. If the pup was successfully retrieved, the time to retrieval was recorded and the trial was scored as a success. Another pup was then taken out of the nest, placed away from the nest (varying the position of the isolated pup relative to the nest from trial to trial), and the next trial was begun. After ten trials, pups were placed back into their home cage with their dam. We used an ultrasonic microphone (Avisoft) to verify that isolated pups vocalized during testing.",
+            "terms_to_be_retrieved": [
+                {
+                    "id": "NBO:0000152",
+                    "name": "maternal nurturing behavior",
+                    "def": "Maternal behavior related to the bringing up her offspring."
+                },
+                {
+                    "id": "NBO:0000155",
+                    "name": "offspring retrieval",
+                    "def": "Behavior related to the parent's tendency to collect stray offspring and return them to a"
+                },
+                {
+                    "id": "NBO:0000156",
+                    "name": "nesting behavior"
+                },
+                {
+                    "id": "NBO:0000157",
+                    "name": "nest building behavior"
+                },
+                {
+                    "id": "NBO:0000150",
+                    "name": "maternal behavior",
+                    "def": "Behavior of a mother towards her offspring.",
+                    "source": "NBO:GVG"
+                }
+            ],
+            "terms_not_to_be_retrieved": [
+                {
+                    "id": "NBO:0002379",
+                    "name": "nursing behavior",
+                    "def": "Maternal behavior related to the nursing offspring."
+                },
+                {
+                    "id": "NBO:0020048",
+                    "name": "facilitating oviposition",
+                    "def": "Deposition of eggs either into the medium, or onto a substrate."
+                },
+                {
+                    "id": "NBO:0000154",
+                    "name": "maternal crouching"
+                },
+                {
+                    "id": "NBO:0000559",
+                    "name": "maternal grooming",
+                    "def": "Behavior related to the activity in which a mother cleans or maintains the body or the appearance of her offsprings.",
+                    "source": "NBO:GVG"
+                }
+            ]
+        },
+        {
+            "title": "Mapping the Neural Dynamics of Locomotion across the Drosophila Brain",
+            "text_excerpt": "During imaging, the head-fixed fly performed spontaneous bouts of walking on a painted, air-suspended foam ball (9 mm diameter, LAST-A-FOAM FR4615). The ball was imaged at 50 Hz with a Flea FL3-U3-13E4M-C sensor and Edmund Optics 100 mm C Series Fixed Focal Length Lens. An IR LED directed with optic fibers was used to illuminate the ball. Frames were processed using Fictrac to calculate the animal’s walking velocity (Moore et al., 2014). Before all subsequent analysis, forward and rotational velocities were smoothed with a Savitzky-Golay filter of window length 500 ms and a polynomial of order 3.During imaging, the head-fixed fly performed spontaneous bouts of walking on a painted, air-suspended foam ball (9 mm diameter, LAST-A-FOAM FR4615). The ball was imaged at 50 Hz with a Flea FL3-U3-13E4M-C sensor and Edmund Optics 100 mm C Series Fixed Focal Length Lens. An IR LED directed with optic fibers was used to illuminate the ball. Frames were processed using Fictrac to calculate the animal’s walking velocity (Moore et al., 2014). Before all subsequent analysis, forward and rotational velocities were smoothed with a Savitzky-Golay filter of window length 500 ms and a polynomial of order 3.",
+            "terms_to_be_retrieved": [
+                {
+                    "id": "NBO:0000056",
+                    "name": "walking behavior",
+                    "def": "The act of locomoting on limbs with body off the ground such that at least one limb is always touching the ground [NBO:AC]"
+                },
+                {
+                    "id": "NBO:0000449",
+                    "name": "spontaneous movement behavior",
+                    "def": "Kinesthetic behavior initiated in the absence of specific sensory input."
+                },
+                {
+                    "id": "NBO:0000013",
+                    "name": "locomotory behavior",
+                    "def": "Movement from place to place of an organism.\" [GO:0007626]"
+                }
+            ],
+            "terms_not_to_be_retrieved": [
+                {
+                    "id": "NBO:0000367",
+                    "name": "flight behavior",
+                    "def": "Behavior related to the self-propelled movement of an organism from one location to another through the air, usually by means of active wing movement."
+                },
+                {
+                    "id": "NBO:0000596",
+                    "name": "titubation",
+                    "def": "\"Posture distinguished by a faltering gait while walking and/or a swaying motion of the trunk or head while resting.\" [JAX:<new dbxref>]"
+                },
+                {
+                    "id": "NBO:0000402",
+                    "name": "walking reflex",
+                    "def": "\"A reflex that causes the infant to attempt to 'walk' by placing one foot in front of the other when the soles of their feet touch a flat surface.\""
+                }
+            ]
+        },
+        {
+            "title": "Developments of a water-maze procedure for studying spatial learning in the rat",
+            "text_excerpt": "The essential feature of the technique is as follows: rats are placed into a large circular pool of water from which they can escape onto a hidden platform. The platform is hidden, first by arranging that its top surface is just beneath the water surface, and second by rendering the water opaque so that the platform is invisible. Thus the platform offers no local cues to guide escape behaviour. In principle, rats could escape from the wafer by swimming randomly, or in unsystematic search paths throughout the pool; but in practice, normal rats very quickly learn to swim directly towards the platform from any starting position at the circumference of the pool. The accurate directionality of their escape behaviour (and other measures of performance) provide evidence that the rats escape by learning the spatial position of the platform relative to distal cues. Comparison of the performance of normal and brain-damaged rats (Morris et al., 1982; Sutherland et al., 1983), and of rats given drugs (Sutherland et al., 1982) or cerebral neurotoxins (Hagan et al., 1983) offers a new way of examining the neurobiology of spatial learning)",
+            "terms_to_be_retrieved": [
+                {
+                    "id": "NBO:0000371",
+                    "name": "aquatic locomotion",
+                    "def": "Behavior related to the movement of an organism from one location to another through a liquid medium.",
+                    "source": "NBO:GVG"
+                },
+                {
+                    "id": "NBO:0000175",
+                    "name": "spatial learning"
+                },
+                {
+                    "id": "NBO:0000373",
+                    "name": "locomotory orientation behavior",
+                    "def": "Behavior related to the ability of an animal to determine and to alter its position in the environment.",
+                    "source": "NBO:GVG"
+                },
+                {
+                    "id": "NBO:0000372",
+                    "name": "directional control of locomotion",
+                    "def": "Behavior related to the control of the direction of locomotion.",
+                    "source": "NBO:GVG"
+                },
+                {
+                    "id": "NBO:0020096",
+                    "name": "trail following to resource",
+                    "def": "Locomotion to a resource guided by visual or olfactory cues created by a prior finder and/or user of that resource."
+                },
+                {
+                    "id": "NBO:0000219",
+                    "name": "escape learning behavior",
+                    "def": "Avoid a situation completely."
+                }
+            ],
+            "terms_not_to_be_retrieved": [
+                {
+                    "id": "NBO:0000583",
+                    "name": "vibrissae reflex",
+                    "def": "\"Change position in response to stimulation of the whiskers.\" [JAX:<new dbxref>]"
+                },
+                {
+                    "id": "NBO:0000056",
+                    "name": "walking behavior",
+                    "def": "The act of locomoting on limbs with body off the ground such that at least one limb is always touching the ground [NBO:AC]"
+                },
+                {
+                    "id": "NBO:0000397",
+                    "name": "swimming reflex",
+                    "def": "\"A reflex that causes the infant to begin to paddle and kick in a swimming motion upon its placement face down in a pool of water.\" [NBO:Primitive_reflexes]"
+                },
+                {
+                    "id": "NBO:0040004",
+                    "name": "surface breathing",
+                    "def": "A behavior involving an organism (especially fish or tadpoles) breathing at or near the surface of water where the concentration of dissolved oxygen is highest. [NBO:EJS]"
+                },
+                {
+                    "id": "NBO:0000428",
+                    "name": "mammalian diving reflex",
+                    "def": "\"A reflex in mammals which optimises respiration to allow staying underwater for extended periods of time.\" [wikipedia:Mammalian_diving_reflex]"
+                },
+                {
+                    "id": "NBO:0040003",
+                    "name": "escape behavior",
+                    "def": "A behavior in which action is rapidly taken by an organism in response to possible predation, examples of which include camouflage, freezing behavior, and fleeing"
+                }
+            ]
+        },
+        {
+            "title": "Temporal and Spectral Sensitivity of Complex Auditory Neurons in the Nucleus HVc of Male Zebra Finches",
+            "text_excerpt": "Song selection and recording Two to three days before the experiment, an adult male zebra finch was placed in a sound-attenuated chamber (Acoustic Systems, Austin, TX) to obtain clear audio recordings of its mature, crystallized song (this species usually sings only one song type as adults). An automatically triggered audio system was used to record ;90 min of bird sounds, containing many samples of the song of the bird. The tape was scanned, and 10 loud, clear songs were digitized at 32 kHz and stored on a computer. Those songs were assessed further by calculating their spectrograms and by examining them visually. A representative version was then chosen from those 10 renditions and analyzed by a custom-made computer program to obtain a parametric representation based on the spectral and temporal components of the song (see below). Zebra finch songs are organized into simple elements often called syllables. These syllables are in turn organized into a set sequence that is called a song phrase or motif. The motif is repeated multiple times in a song (Zann, 1996, pp 214–215). We chose songs that varied in length between 1.1 and 2.3 sec and consisted of two or three motifs. The length of the song is important because it has been reported that HVc neurons integrate over long periods of time and that the maximal responses are not necessarily found in the first motif (Margoliash and Fortune, 1992; Sutter and Margoliash, 1994).",
+            "terms_to_be_retrieved": [
+                {
+                    "id": "NBO:0000777",
+                    "name": "vocalization behavior phenotype",
+                    "def": "Observable characteristic of behaviour in which an organism produces sounds by a mechanism involving its respiratory system.",
+                    "source": "NBO:GVG"
+                },
+                {
+                    "id": "NBO:0000658",
+                    "name": "auditory behavior phenotype",
+                    "def": "Observable characteristic of behavior related to the actions or reactions of an organism in response to a sound.",
+                    "source": "NBO:GVG"
+                },
+                {
+                    "id": "NBO:0000036",
+                    "name": "behavioral control of production of sound",
+                    "synonym": "produce sound"
+                },
+                {
+                    "id": "NBO:0000316",
+                    "name": "auditory behavior",
+                    "synonym": "Behavior related to the actions or reactions of an organism in response to a sound"
+                }
+            ],
+            "terms_not_to_be_retrieved": [
+                {
+                    "id": "NBO:0000623",
+                    "name": "echolalia",
+                    "def": "Stereotypic behavior characterised by a tendency to repeat vocalizations.",
+                    "source": "NBO:GVG"
+                },
+                {
+                    "id": "NBO:0000775",
+                    "name": "crying behavior phenotype",
+                    "def": "Observable characteristic of behaviour in which an organism sheds tears, often accompanied by non-verbal vocalizations and in response to external or internal stimuli.",
+                    "source": "NBO:GVG"
+                },
+                {
+                    "id": "NBO:0000385",
+                    "name": "phonotaxis",
+                    "def": "Locomotory orientation in response to sound.",
+                    "source": "NBO:GVG"
+                },
+                {
+                    "id": "NBO:0000176",
+                    "name": "vocal learning",
+                    "def": "A behavioral process whose outcome is a relatively long-lasting adaptive behavioral change whereby an organism modifies innate vocalizations to imitate or create new sounds",
+                    "source": "NBO:GVG"
+                }
+            ]
+        },
+        {
+            "title": "Neural correlates of decision variables in parietal cortex",
+            "text_excerpt": "Here we examine whether a decision-theoretic model might reveal a link between the activity of area LIP neurons and the choices animals make in an oculomotor task. In the first experiment (experiment 1; Figs 1, 2), we monitored the activity of single intraparietal neurons while animals performed cued saccade trials, in which a change in the colour of a centrally located fixation stimulus instructed subjects to make one of two possible eye movement responses in order to receive a juice reward. Before this stimulus changed colour, the rewarded movement was ambiguous. In successive blocks of trials, we varied either the volume of juice delivered for each instructed response (expected gain) or the probability that each possible response would be instructed (outcome probability), while holding all sensory signals and motorrelated variables constant. This allowed us to test whether any portion of the variation in area LIP spike rates observed under these conditions was correlated with variations in the decision variables we manipulated",
+            "terms_to_be_retrieved": [
+                {
+                    "id": "NBO:0000444",
+                    "name": "eye movement"
+                },
+                {
+                    "id": "NBO:0000315",
+                    "name": "optokinetic behavior",
+                    "def": "\"Behavior related to the actions or reactions of an organism pertaining to movement of the eyes and of objects in the visual field, as in nystagmus.\" [GO:0007634]"
+                },
+                {
+                    "id": "NBO:0000455",
+                    "name": "attention behavior",
+                    "def": "The sustained focus of cognitive resources on information while filtering or ignoring extraneous information.  Intended to encompass only attention to perceptual stimuli."
+                },
+                {
+                    "id": "NBO:0000456",
+                    "name": "focused attention behavior",
+                    "def": "Behavior involving responding discretely to specific visual, auditory or tactile stimuli.",
+                    "source": "wikipedia:Attention"
+                }
+            ],
+            "terms_not_to_be_retrieved": [
+                {
+                    "id": "NBO:0020096",
+                    "name": "trail following to resource",
+                    "def": "Locomotion to a resource guided by visual or olfactory cues created by a prior finder and/or user of that resource."
+                },
+                {
+                    "id": "NBO:0000417",
+                    "name": "physiologic nystagmus",
+                    "def": "\"A form of involuntary eye movement that is part of the vestibulo-ocular reflex (VOR). It is characterized by alternating smooth pursuit in one direction and saccadic movement in the other direction.\" [wikipedia:Physiologic_nystagmus]"
+                },
+                {
+                    "id": "NBO:0000446",
+                    "name": "visual pursuit",
+                    "def": "Selective tracking that follows a moving object by eye."
+                },
+                {
+                    "id": "NBO:0000413",
+                    "name": "accommodation reflex",
+                    "def": "\"A reflex action of the eye, in response to focusing on a near object, then looking at distant object (and vice versa), comprising coordinated changes in vergence, lens shape and pupil size.\" [wikipedia:Accommodation_reflex]"
+                }
+            ]
+        }
+    ]
+}
