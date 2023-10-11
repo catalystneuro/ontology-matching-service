@@ -113,3 +113,11 @@ button:hover {
     color: #000000;
     margin-top: 1.25rem;
 }
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    font-size: 1.5em;  /* This increases the font size */
+    margin: 1em;
+    text-align: center;
+}

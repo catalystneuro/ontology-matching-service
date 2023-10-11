@@ -7,6 +7,7 @@ import os
 import openai
 from langchain.embeddings.openai import OpenAIEmbeddings
 from qdrant_client import QdrantClient
+from openai.error import InvalidRequestError
 
 
 def semantic_match(text, top=30, score_threshold=0.5):
@@ -63,20 +64,18 @@ def rerank_with_openai_from_ontologies_and_text(text, descriptions):
     openai.api_key = os.getenv("OPENAI_API_KEY")
 
     system_content = "You are a neuroscience researcher and you are interested in figuring out specific behaviors from a text description"
-    try:
-        completion = openai.ChatCompletion.create(
-            model=model,
-            messages=[
-                {"role": "system", "content": system_content},
-                {"role": "user", "content": prompt},
-            ],
-            temperature=0.0,
-        )
-    except:
-        raise (f"OpenAI API call failed with prompt {prompt}")
+    completion = openai.ChatCompletion.create(
+        model=model,
+        messages=[
+            {"role": "system", "content": system_content},
+            {"role": "user", "content": prompt},
+        ],
+        temperature=0.0,
+    )
+
 
     response = completion.choices[0].message.content
-    response
+    
 
     try:
         json_dict = json.loads(response)

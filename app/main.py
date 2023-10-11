@@ -4,6 +4,7 @@ import os
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from openai.error import InvalidRequestError
 
 from ontology_matching_service.ontology_grounding import semantic_match, rerank
 
@@ -65,16 +66,24 @@ async def get_ontology_matches(
     if not open_ai_api_key:
         raise ValueError("OPENAI_API_KEY environment variable not set")
 
-    # Your pre-defined values
     top = 30
     score_threshold = 0.50
 
-    results_list = semantic_match(text=text, top=top, score_threshold=score_threshold)
-    results_list = rerank(results_list, text)
+    try:
+        results_list = semantic_match(text=text, top=top, score_threshold=score_threshold)
+        results_list = rerank(results_list, text)
+        
+    except InvalidRequestError as e:
+        # Handle the specific InvalidRequestError
+        detail = "Text too large. Try using a shorter description or use smaller pieces of your text as input."
+        raise HTTPException(status_code=400, detail=detail)
+
+    except Exception as e:
+        # Handle general errors and raise a 500 Internal Server Error
+        raise HTTPException(status_code=500, detail=str(e))
     
     if results_list:
         payload_list = [result.payload for result in results_list][:5]
-        # Eliminate duplicates using result.id
         
     else:
         payload_list = []
