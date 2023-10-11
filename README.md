@@ -16,17 +16,22 @@ Then run the following command to start the server of the backend:
 uvicorn app.main:app --reload
 ```
 
+
+
 And then test the service by running this:
 
 ```
-curl http://127.0.0.1:8000/get_ontology_matches/?text=This%20describes%20a%20behavior%20of%20hunting%20in%20a%20caged%20environment
-curl http://13.51.165.148:8000/get_ontology_matches/?text=This%20describes%20a%20behavior%20of%20hunting%20in%20a%20caged%20environment
+curl http://localhost:8000/get_ontology_matches/?text=This%20describes%20a%20behavior%20of%20hunting%20in%20a%20caged%20environment
+curl https://ontology-matching.delightfulsand-a1030a48.centralus.azurecontainerapps.io/get_ontology_matches/?text=This%20describes%20a%20behavior%20of%20hunting%20in%20a%20caged%20environment
 ```
+
+This queries the behavior for `This describes a behavior of hunting in a caged environment`
 
 
 You can see the schema:
 ```
-http://127.0.0.1:8000/docs
+http://localhost:8000/docs
+
 ```
 
 Build with docker

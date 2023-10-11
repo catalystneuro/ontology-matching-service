@@ -32,9 +32,8 @@ class Payload(BaseModel):
 
 origins = [
     "http://localhost:3000",  # Allow local frontend origin
-    "http://localhost:3001",  # Allow local frontend origin
-    "http://frontend:3001",  # Allow Docker-internal frontend service address
-    "http://frontend:3000",  # Allow Docker-internal frontend service address
+    "http://frontend:3000",  # Allow Docker-internal frontend service address using docker-compose
+    "https://ontology-matching-frontend.delightfulsand-a1030a48.centralus.azurecontainerapps.io",  # Allow your frontend in Azure Container Apps
 ]
 
 if os.environ.get("EXTERNAL_SERVER_ADDRESS", None):
@@ -71,13 +70,13 @@ async def get_ontology_matches(
     score_threshold = 0.50
 
     results_list = semantic_match(text=text, top=top, score_threshold=score_threshold)
-    if not results_list:
-        raise HTTPException(status_code=404, detail="Matches not found")
-
     results_list = rerank(results_list, text)
+    
     if results_list:
-        payload_list = [result.payload for result in results_list]
+        payload_list = [result.payload for result in results_list][:5]
+        # Eliminate duplicates using result.id
+        
     else:
-        results_list = [{}]
+        payload_list = []
 
-    return payload_list[:5]
+    return payload_list

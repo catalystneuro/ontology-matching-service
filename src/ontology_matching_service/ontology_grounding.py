@@ -73,7 +73,7 @@ def rerank_with_openai_from_ontologies_and_text(text, descriptions):
             temperature=0.0,
         )
     except:
-        raise (f"OpenAI API call failed with promprt {prompt}")
+        raise (f"OpenAI API call failed with prompt {prompt}")
 
     response = completion.choices[0].message.content
     response
@@ -141,11 +141,14 @@ def rerank(results_list, text: str):
     description_list = [build_description_sentence(result=result) for result in results_list]
     entities_found = rerank_with_openai_from_ontologies_and_text(text=text, descriptions=description_list)
 
-    # LLM returns strings with the IDs. Match them back to the original results to get the full payloads
+    results_dict = {result.payload["id"]: result for result in results_list}
+    seen_ids = set()
     matching_result_list = []
+
     for id in entities_found:
-        matching_result = next((result for result in results_list if result.payload["id"] == id))
-        matching_result_list.append(matching_result)
+        if id not in seen_ids and id in results_dict:
+            matching_result_list.append(results_dict[id])
+            seen_ids.add(id)
 
     return matching_result_list
 
