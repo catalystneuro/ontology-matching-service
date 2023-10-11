@@ -3,16 +3,23 @@ import './App.css';
 import { OntologyItem } from './types';
 import OntologyBox from './OntologyBox';
 
+
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
+console.log("API Service Location:", API_ENDPOINT);  // Remove this line in production
+
 function App() {
+
     const [text, setText] = useState('');
     const [data, setData] = useState<OntologyItem[]>([]);
     const [isLoading, setIsLoading] = useState(false);
+
+
 
     const handleSubmit = async () => {
         setIsLoading(true);
         setData([]); // Clear the previous results
         try {
-            const response = await fetch(`http://13.51.165.148:8000/get_ontology_matches/?text=${encodeURIComponent(text)}`); // This should be changed by local server if needed
+            const response = await fetch(`${API_ENDPOINT}/get_ontology_matches/?text=${encodeURIComponent(text)}`);
             const result = await response.json();
             setData(result);
         } catch (error) {

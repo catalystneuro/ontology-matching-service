@@ -9,6 +9,9 @@ RUN npm install
 
 COPY frontend/ ./
 
+
 EXPOSE 3000
+
+RUN npm run build
 
 CMD ["npx", "serve", "-s", "build", "-l", "3000"]
