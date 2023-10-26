@@ -27,7 +27,7 @@
 
 .input-text {
     width: 100%;
-    height: 15rem;  /* Changed to relative units */
+    height: 15rem;  
     padding: 1rem;
     font-size: 1em;
     border-radius: 5px;
@@ -37,8 +37,8 @@
 }
 
 button {
-    margin-top: 1.25rem;  /* Changed to relative units */
-    padding: 0.625rem 1.25rem;  /* Changed to relative units */
+    margin-top: 1.25rem;  
+    padding: 0.625rem 1.25rem;  
     background-color: #171d3cff;
     color: #ffffff;
     border: none;
@@ -68,17 +68,17 @@ button:hover {
 .ontology-box {
     background-color: #ffffff;
     width: 100%;
-    padding: 1rem;  /* Changed to relative units */
+    padding: 1rem;  
     border: 1px solid #d0d7dc;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 0.625rem;  /* Changed to relative units */
+    margin-bottom: 0.625rem;  
 }
 
 .legend {
     display: flex;
     align-items: center;
-    padding: 1.75rem 3.5rem;  /* Changed to relative units */
+    padding: 1.75rem 3.5rem;  
     margin-bottom: 1.25rem;
     background-color: rgba(255, 255, 255, 1.0);
     border: 1px solid #d0d7dc;
@@ -88,9 +88,9 @@ button:hover {
     z-index: 1000;
     background-image: url('logo.png');
     background-repeat: no-repeat;
-    background-size: 7rem;  /* Changed to relative units */
+    background-size: 7rem;  
     background-position: center left;
-    padding-left: 8.75rem;  /* Changed to relative units */
+    padding-left: 8.75rem;  
     margin-left: -9.375rem; 
 }
 

@@ -8,15 +8,15 @@ console.log("API Service Location:", API_ENDPOINT);
 
 function App() {
     const [text, setText] = useState('');
-    const [ontology, setOntology] = useState('neuro_behavior_ontology'); // Moved outside handleSubmit
+    const [ontology, setOntology] = useState('neuro_behavior_ontology'); 
     const [data, setData] = useState<OntologyItem[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
     const handleSubmit = async () => {
         setIsLoading(true);
-        setData([]); // Clear the previous results
-        setErrorMessage(null); // Clear any previous error message
+        setData([]); 
+        setErrorMessage(null); 
 
         try {
             // API call
@@ -49,7 +49,7 @@ function App() {
                         className="input-text" 
                         value={text} 
                         onChange={(e) => setText(e.target.value)} 
-                        placeholder="Write text here and click submit to return matching ontological terms."
+                        placeholder="Write text here and click submit to return matching ontological terms from the."
                     />
                     <select 
                         value={ontology}
