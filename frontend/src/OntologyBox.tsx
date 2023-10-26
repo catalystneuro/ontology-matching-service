@@ -11,7 +11,7 @@ const OntologyBox: React.FC<Props> = ({ item }) => {
     return (
         <div className="ontology-box">
             <div>
-                <strong>ID:</strong> 
+                <strong>ID: </strong> 
                 <a href={`http://purl.obolibrary.org/obo/${item.id.replace(/:/g, "_")}`} target="_blank" rel="noopener noreferrer">
                     {item.id}
                 </a>

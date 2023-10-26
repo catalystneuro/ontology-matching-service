@@ -56,8 +56,9 @@ app.add_middleware(
 @app.get("/get_ontology_matches/", response_model=List[Payload])
 async def get_ontology_matches(
     text: str = Query(..., description="Text excerpt to match against"),
-    ontology: Optional[Literal["behavior"]] = Query("behavior", description="Ontology type to use"),
+    ontology: Optional[Literal["neuro_behavior_ontology", "cognitiveatlas"]] = Query("neuro_behavior_ontology", description="Ontology type to use"),
 ):
+
     api_key = os.environ.get("QDRANT_API_KEY")
     if not api_key:
         raise ValueError("QDRANT_API_KEY environment variable not set")
@@ -70,8 +71,8 @@ async def get_ontology_matches(
     score_threshold = 0.50
 
     try:
-        results_list = semantic_match(text=text, top=top, score_threshold=score_threshold)
-        results_list = rerank(results_list, text)
+        results_list = semantic_match(text=text, top=top, score_threshold=score_threshold, ontology=ontology)
+        results_list = rerank(results_list, text, ontology=ontology)
         
     except InvalidRequestError as e:
         # Handle the specific InvalidRequestError
