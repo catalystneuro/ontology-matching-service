@@ -72,7 +72,8 @@ async def get_ontology_matches(
 
     try:
         results_list = semantic_match(text=text, top=top, score_threshold=score_threshold, ontology=ontology)
-        results_list = rerank(results_list, text, ontology=ontology)
+        if ontology in ["neuro_behavior_ontology"]:
+            results_list = rerank(results_list, text, ontology=ontology)
         
     except InvalidRequestError as e:
         # Handle the specific InvalidRequestError

@@ -4,11 +4,11 @@ import { OntologyItem } from './types';
 import OntologyBox from './OntologyBox';
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
-console.log("API Service Location:", API_ENDPOINT);  
+console.log("API Service Location:", API_ENDPOINT);
 
 function App() {
-
     const [text, setText] = useState('');
+    const [ontology, setOntology] = useState('neuro_behavior_ontology'); // Moved outside handleSubmit
     const [data, setData] = useState<OntologyItem[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -19,16 +19,15 @@ function App() {
         setErrorMessage(null); // Clear any previous error message
 
         try {
-            const response = await fetch(`${API_ENDPOINT}/get_ontology_matches/?text=${encodeURIComponent(text)}`);
+            // API call
+            const response = await fetch(`${API_ENDPOINT}/get_ontology_matches/?text=${encodeURIComponent(text)}&ontology=${ontology}`);
             
-            // If the response is not ok, handle the error
             if (!response.ok) {
                 const result = await response.json();
                 setErrorMessage(result.detail || "An error occurred. Please try again later.");
                 return;
             }
 
-            // This is the good response
             const result = await response.json();
             setData(result);
         } catch (error) {
@@ -39,7 +38,7 @@ function App() {
         }
     };
 
-    return (
+    const renderedContent = (
         <div className="app-container">
             <div className="section-wrapper"> 
                 <div className="legend">
@@ -52,6 +51,14 @@ function App() {
                         onChange={(e) => setText(e.target.value)} 
                         placeholder="Write text here and click submit to return matching ontological terms."
                     />
+                    <select 
+                        value={ontology}
+                        onChange={(e) => setOntology(e.target.value)}
+                        className="ontology-selector"
+                    >
+                        <option value="neuro_behavior_ontology">Neuro Behavior Ontology</option>
+                        <option value="cognitiveatlas">Cognitive Atlas</option>
+                    </select>
                     <button onClick={handleSubmit}>Submit</button>
                 </div>
             </div>
@@ -67,7 +74,7 @@ function App() {
                                 <div className="no-results">No results were found.</div>
                                 :
                                 data.map((item, index) => (
-                                    <OntologyBox key={index} item={item} />
+                                    <OntologyBox key={index} item={item} ontology={ontology}/>
                                 ))
                             )
                         )
@@ -76,6 +83,8 @@ function App() {
             </div>
         </div>
     );
+
+    return renderedContent;
 }
 
 export default App;
