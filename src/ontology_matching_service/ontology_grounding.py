@@ -7,7 +7,15 @@ import os
 import openai
 from langchain.embeddings.openai import OpenAIEmbeddings
 from qdrant_client import QdrantClient
-from openai.error import InvalidRequestError
+
+from functools import lru_cache
+
+
+@lru_cache(maxsize=None)
+def get_qdrant_client():
+    qdrant_url = "https://18ef891e-d231-4fdd-8f6d-8e2d91337c24.us-east4-0.gcp.cloud.qdrant.io"
+    api_key = os.getenv("QDRANT_API_KEY", "")
+    return QdrantClient(url=qdrant_url, api_key=api_key)
 
 
 def embed_text(text: str) -> list:
@@ -18,12 +26,7 @@ def embed_text(text: str) -> list:
 
 
 def semantic_match(text, top=30, score_threshold=0.5, ontology="neuro_behavior_ontology"):
-    qdrant_url = "https://18ef891e-d231-4fdd-8f6d-8e2d91337c24.us-east4-0.gcp.cloud.qdrant.io"
-    api_key = os.environ["QDRANT_API_KEY"]
-    qdrant_client = QdrantClient(
-        url=qdrant_url,
-        api_key=api_key,
-    )
+    qdrant_client = get_qdrant_client()
 
     query_vector = embed_text(text)
 

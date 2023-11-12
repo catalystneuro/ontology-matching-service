@@ -3,14 +3,15 @@
 Private repo to play with metadata extraction
 
 ## Local testing
-How to test locally without docker
 
+### Backend
 First export local variables for the database
 
 ```
 export OPENAI_API_KEY="your_key_here"
 export QDRANT_API_KEY="your_key_here"
 ```
+
 
 Note that the `QDRANT_API_KEY`` has to be the catalyst neuro for the cluster where the vectorized ontologies are located.
 
@@ -34,8 +35,18 @@ http://localhost:8000/docs
 
 ```
 
+### Frontend
+
+Run the following command to start the server of the frontend:
+```
+cd frontend
+npm start
+```
+
+Note that this will start the frontend in port 3000, so you can access it by going to `http://localhost:3000/`. This is also not a production server, so it will not have the same performance as the production server.
 
 
+## Docker test
 Build with docker
 
 ```
@@ -44,6 +55,13 @@ docker build -t ontology-matching-services-frontend-app:latest -f Dockerfile.fro
 ```
 
 How to upload to github packages:
+
+First, login to github packages:
+```
+docker login ghcr.io -u YOUR_GITHUB_USERNAME -p YOUR_GITHUB_TOKEN
+```
+
+Then, tag the images and push them to github packages:
 
 Backend:
  
