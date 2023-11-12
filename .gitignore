@@ -162,7 +162,9 @@ cython_debug/
 
 # Add javasciprt nodemodules
 frontend/node_modules/*
+data/*
 dev_notebook.ipynb 
+dev.py 
 scripts/dev.py
 backend.env
 repo_secrets.py
