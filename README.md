@@ -11,7 +11,11 @@ First export local variables for the database
 export OPENAI_API_KEY="your_key_here"
 export QDRANT_API_KEY="your_key_here"
 ```
+You can also source all the variables written in `backend.env` (to be filled by you) with the following script:
 
+```bash
+source ./scripts/source_backend_env.sh ./backend.env
+```
 
 Note that the `QDRANT_API_KEY`` has to be the catalyst neuro for the cluster where the vectorized ontologies are located.
 
@@ -36,8 +40,9 @@ http://localhost:8000/docs
 ```
 
 ### Frontend
+First modify the `./frontend.env` to point to the backend. For example, if you are running the backend locally, you can use `http://localhost:8000` as the backend url.
 
-Run the following command to start the server of the frontend:
+Then run the following command to start the server of the frontend:
 ```
 cd frontend
 npm start
