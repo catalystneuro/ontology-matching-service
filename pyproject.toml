@@ -22,11 +22,12 @@ classifiers = [
 dependencies = [
     "qdrant_client",
     "langchain",
-    "openai",
+    "openai==0.27.8",
     "fastapi",
     "uvicorn",
     "pydantic",
     "tiktoken",
+    "pyodbc",
 ]
 
 

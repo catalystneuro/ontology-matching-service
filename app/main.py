@@ -61,8 +61,6 @@ def log_query(text: str, payload_list: List[Payload], ontology: str):
     database = os.environ["LOG_DATA_BASE_NAME"]
     username = os.environ["LOG_DATA_BASE_USER_NAME"]
     password = os.environ["LOG_DATA_BASE_USER_PASSWORD"]
-
-    # Connection string
     database_url = (
         f"DRIVER={{ODBC Driver 18 for SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}"
     )
@@ -76,6 +74,7 @@ def log_query(text: str, payload_list: List[Payload], ontology: str):
                 VALUES (?, GETDATE(), '/get_ontology_matches/', ?, NULL, NULL, ?)
             """
             cursor.execute(insert_query, query_text, response_payload, ontology)
+            print("Query logged successfully")
         except Exception as e:
             print(f"An error occurred while logging: {e}")
 
