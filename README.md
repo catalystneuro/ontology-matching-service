@@ -28,7 +28,10 @@ From: `Temporal and Spectral Sensitivity of Complex Auditory Neurons in the Nucl
 ## Architecture
 The service is composed of two main components: a backend and a frontend. The backend is a FastAPI service that uses the OpenAI API to generate embeddings for the text and then uses the Qdrant API to search for the most similar ontologies. The frontend is a React app that allows the user to input text and get the most similar ontologies.
 
+The backend architecture is as follows:
 
+
+![Architecture Diagram](./assets/architecture.svg)
 
 
 
