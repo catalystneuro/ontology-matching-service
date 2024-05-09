@@ -3,7 +3,7 @@
 
 The ontology matching service is an exepriment on using the technology of LLMs to facilitate provenance in scientific research. The basic idea is that precise terms from ontologies are matched to free form text (e.g. the method section of a paper). In the following link a prototype of the service is available that implements matching to ontologies from the [Neurobehavioral Ontology](https://bioportal.bioontology.org/ontologies/NBO) and the [Cognitive Atlas](https://www.cognitiveatlas.org/).
 
-Test the service in the followling link:
+Test the service in the following link:
 
 [link](https://ontology-matching-frontend.delightfulsand-a1030a48.centralus.azurecontainerapps.io/)
 
