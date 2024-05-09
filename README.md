@@ -62,8 +62,7 @@ This test was used for the initial screening of dams and virgin female mice. In 
 """
 
 results_list = semantic_match(text=text, top=top, score_threshold=score_threshold, ontology=ontology)
-if ontology in ["neuro_behavior_ontology"]:
-    results_list = rerank(results_list, text, ontology=ontology)
+results_list = rerank(results_list, text, ontology=ontology)
     
 response = process_response(results_list)
 response
@@ -71,7 +70,7 @@ response
 
 The output should be something like this:
 
-```json
+```python
 {'NBO:0000155': {'name': 'offspring retrieval',
   'definition': "Behavior related to the parent's tendency to collect stray offspring and return them to a defined location."},
  'NBO:0000156': {'name': 'nesting behavior', 'definition': ''},
