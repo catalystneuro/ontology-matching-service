@@ -153,3 +153,12 @@ async def get_ontology_matches(
     background_tasks.add_task(log_query, data_base_logging, text, payload_list, ontology)
 
     return payload_list
+
+
+def process_response(payload_list):
+    
+    # Remove some redundant information from the payload for logging
+    
+    output = {response.id: dict(name=response.payload["name"], definition=response.payload["definition"]) for response in payload_list}
+    
+    return output

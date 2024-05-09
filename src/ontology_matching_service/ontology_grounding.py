@@ -54,7 +54,11 @@ def rerank_with_openai_from_ontologies_and_text(text, descriptions, ontology):
 
     From those entities, return a reranked list with the 10 most relevant entities to the text description ordered from most relevant to least relevant.
     If an element does not seem related enough, do not include it in the list.
-    The format of the output list should be in json style and include only the ids of the entities in the list, not the names or definitions.
+    Format the response as a JSON object with the following structure:
+    {{
+        "relevant_entities": ["entity_id_1", "entity_id_2", "entity_id_3", "entity_id_4", "entity_id_5", "entity_id_6", "entity_id_7", "entity_id_8", "entity_id_9", "entity_id_10"]
+    }}
+    
     """
 
     model = "gpt-3.5-turbo"
@@ -71,15 +75,19 @@ def rerank_with_openai_from_ontologies_and_text(text, descriptions, ontology):
     )
 
     response = completion.choices[0].message.content
-
     try:
+        
+        # Remove markdown formatting if it exists
+        if response.startswith('```json'):
+            response = response.strip('```').strip()
+            response = response.replace("json", "")
         json_dict = json.loads(response)
         key = list(json_dict.keys())[0]
         entities_found = json_dict[key]
     except:
         warnings.warn(
             f"The response from OpenAI was not in the expected format. Here is the response:"
-            "\n {response} \n Returning an empty list."
+            f"\n {response} \n Returning an empty list."
         )
         entities_found = []
     return entities_found
@@ -164,3 +172,12 @@ def rerank_bm25(results_list, text: str):
         matching_result_list.append(matching_result)
 
     return matching_result_list
+
+
+def process_response(payload_list):
+    
+    # Remove some redundant information from the payload for logging
+    
+    output = {response.payload["id"]: dict(name=response.payload["name"], definition=response.payload["definition"]) for response in payload_list}
+    
+    return output

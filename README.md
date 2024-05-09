@@ -38,6 +38,63 @@ The backend architecture is as follows:
 
 # Testing
 
+### Python API
+
+Clone the repository and go to the root folder of the project, then install the package with the following command:
+
+``` 
+pip install .
+```
+
+Then you can test the package with the following command:
+
+```python
+from ontology_matching_service.ontology_grounding import semantic_match, rerank, process_response
+
+
+top = 30
+
+score_threshold = 0.50
+ontology = "neuro_behavior_ontology"
+
+text = """
+This test was used for the initial screening of dams and virgin female mice. In addition, outside of the spontaneous home cage behaviours, we specifically monitored pup retrieval every 24 h by the virgin females. We placed the female mouse to be tested in a behavioural arena (38 × 30 × 15 cm) containing bedding and nesting material; the female was alone, without contact with other animals. Each animal was given 20 min to acclimatize before each testing session began. The entire litter (ranging from 3 to 7 P1–4 pups) were grouped in a corner of the arena and covered with nesting material, and the adult female given an additional 2 min of acclimatization (pup group size did not affect retrieval behaviour; Extended Data Fig. 2c). One pup was removed from the nest and placed in an opposite corner of the arena. The experimental female was given 2 min per trial to retrieve the displaced pup and return it back to the nest; if the displaced pup was not retrieved within 2 min, the pup was returned to the nest and the trial was scored as a failure. If the pup was successfully retrieved, the time to retrieval was recorded and the trial was scored as a success. Another pup was then taken out of the nest, placed away from the nest (varying the position of the isolated pup relative to the nest from trial to trial), and the next trial was begun. After ten trials, pups were placed back into their home cage with their dam. We used an ultrasonic microphone (Avisoft) to verify that isolated pups vocalized during testing
+"""
+
+results_list = semantic_match(text=text, top=top, score_threshold=score_threshold, ontology=ontology)
+if ontology in ["neuro_behavior_ontology"]:
+    results_list = rerank(results_list, text, ontology=ontology)
+    
+response = process_response(results_list)
+response
+```
+
+The output should be something like this:
+
+```json
+{'NBO:0000155': {'name': 'offspring retrieval',
+  'definition': "Behavior related to the parent's tendency to collect stray offspring and return them to a defined location."},
+ 'NBO:0000156': {'name': 'nesting behavior', 'definition': ''},
+ 'NBO:0000152': {'name': 'maternal nurturing behavior',
+  'definition': 'Maternal behavior related to the brining up her offspring.'},
+ 'NBO:0000150': {'name': 'maternal behavior',
+  'definition': 'Behavior of a mother towards her offspring.'},
+ 'NBO:0000559': {'name': 'maternal grooming',
+  'definition': 'Behavior related to the activity in which a mother cleans or maintains the body or the appearance of her offsprings.'},
+ 'NBO:0000154': {'name': 'maternal crouching', 'definition': ''},
+ 'NBO:0000213': {'name': 'imprinting behavior', 'definition': ''},
+ 'NBO:0020102': {'name': 'mouth brooding',
+  'definition': 'Process of retaining developing eggs in the mouth cavity.'},
+ 'NBO:0000146': {'name': 'mating receptivity', 'definition': ''},
+ 'NBO:0020084': {'name': 'mate finding behavior',
+  'definition': 'Active search for possible mates.'}}
+
+```
+
+
+
+
+
 ### Backend
 First export local variables for the database
 
