@@ -1,10 +1,8 @@
 import warnings
 import json
-from pathlib import Path
 import os
 
 import openai
-from langchain.embeddings.openai import OpenAIEmbeddings
 from qdrant_client import QdrantClient
 
 from functools import lru_cache
@@ -18,9 +16,12 @@ def get_qdrant_client():
 
 
 def embed_text(text: str) -> list:
-    embedding_model = OpenAIEmbeddings(openai_api_key=os.environ["OPENAI_API_KEY"])
-    embedding = embedding_model.embed_documents([text])[0]
-
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+    response = openai.Embedding.create(
+        input=text,
+        model="text-embedding-ada-002"
+    )
+    embedding = response['data'][0]['embedding']
     return embedding
 
 

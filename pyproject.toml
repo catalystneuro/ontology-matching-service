@@ -1,6 +1,6 @@
 [project]
 name = "ontology_matching_service"
-version = "0.1.0"
+version = "0.1.1"
 description = "Your project description"
 authors = [
   {name="Heberto Mayorquin", email="h.mayorquin@gmail.com"}
@@ -21,7 +21,6 @@ classifiers = [
 
 dependencies = [
     "qdrant_client",
-    "langchain==0.0.292",
     "openai==0.27.8",
     "fastapi",
     "uvicorn",

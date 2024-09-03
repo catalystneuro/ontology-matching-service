@@ -1,0 +1,21 @@
+name: Weekly Query Check
+
+on:
+    schedule:
+        - cron: "0 0 * * 0" # Run every Sunday at midnight
+    workflow_dispatch:
+
+jobs:
+    query_check:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Check Query Success
+              run: |
+                response_code=$(curl -s -o /dev/null -w "%{http_code}" "https://ontology-matching.delightfulsand-a1030a48.centralus.azurecontainerapps.io/get_ontology_matches/?text=This%20describes%20a%20behavior%20of%20hunting%20in%20a%20caged%20environment")
+                if [ $response_code -eq 200 ]; then
+                    echo "Query successful"
+                else
+                    echo "Query failed with status code $response_code"
+                    exit 1
+                fi

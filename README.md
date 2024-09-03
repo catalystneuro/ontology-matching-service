@@ -117,7 +117,7 @@ uvicorn app.main:app --reload
 And then test the service by running this:
 
 ```
-curl http://localhost:8000/get_ontology_matches/?text=This%20describes%20a%20behavior%20of%20hunting%20in%20a%20caged%20environment
+curl http://localhost:8000/get_ontology_matches/?text=This%20describes%20a%20behavior%20of%20hunting%20in%20a%20caged%20environment&num_results=10&ontology=neuro_behavior_ontology
 ```
 
 This queries the behavior for `This describes a behavior of hunting in a caged environment`
