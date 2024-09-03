@@ -153,7 +153,7 @@ How to upload to github packages:
 
 First, login to github packages:
 ```
-docker login ghcr.io -u YOUR_GITHUB_USERNAME -p YOUR_GITHUB_TOKEN
+docker login ghcr.io -u YOUR_GITHUB_USERNAME
 ```
 
 Then, tag the images and push them to github packages:

@@ -1,4 +1,3 @@
-import requests
 import warnings
 import json
 from pathlib import Path
@@ -13,7 +12,7 @@ from functools import lru_cache
 
 @lru_cache(maxsize=None)
 def get_qdrant_client():
-    qdrant_url = "https://18ef891e-d231-4fdd-8f6d-8e2d91337c24.us-east4-0.gcp.cloud.qdrant.io"
+    qdrant_url = "ea062dec-cb5b-4320-82a7-3c99a9110bf9.europe-west3-0.gcp.cloud.qdrant.io:6333"
     api_key = os.getenv("QDRANT_API_KEY", "")
     return QdrantClient(url=qdrant_url, api_key=api_key)
 

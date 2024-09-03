@@ -120,31 +120,32 @@ total_tokens = sum(length_of_encoding_per_node)
 dollars_per_token = 0.0001 / 1000  #  Check the latest pricing to re-estimate this.
 print(f"Total prize to embed {total_tokens * dollars_per_token: 2.4f} USD ")
 
-
-file_path = Path('../data/nbo_embeddings.pickle')
+this_code_file_path = Path(__file__)
+package_folder = this_code_file_path.parent.parent
+pickle_file_path = package_folder / "data" / "nbo_embeddings.pickle"
 overwrite = False
 
 if overwrite:
     # Remove file if it exists
-    if file_path.is_file():
-        os.remove(file_path)
-        
-if not file_path.is_file(): 
-    print(f'creating ebmedings in {file_path.stem}')
+    if pickle_file_path.is_file():
+        os.remove(pickle_file_path)
+      
+if not pickle_file_path.is_file(): 
+    print(f'creating ebmedings in {pickle_file_path.stem}')
     embedding_model = OpenAIEmbeddings(openai_api_key=os.environ["OPENAI_API_KEY"])
     documents = text_to_embed
     embeddings = embedding_model.embed_documents(documents)
-    with open(file_path, 'wb') as f:
+    with open(pickle_file_path, 'wb') as f:
         pickle.dump(embeddings, f)
 else:
-    with open(file_path, 'rb') as f:
+    with open(pickle_file_path, 'rb') as f:
         embeddings = pickle.load(f)
 
 embeddings = np.array(embeddings)
 num_vectors, vector_size = embeddings.shape
 
 
-qdrant_url = "https://18ef891e-d231-4fdd-8f6d-8e2d91337c24.us-east4-0.gcp.cloud.qdrant.io"
+qdrant_url = "ea062dec-cb5b-4320-82a7-3c99a9110bf9.europe-west3-0.gcp.cloud.qdrant.io:6333"
 api_key = os.environ["QDRANT_API_KEY"]
 client = QdrantClient(
     url=qdrant_url,
@@ -165,6 +166,41 @@ for index, node_info in enumerate(tqdm(id_to_info.values())):
     # Create a point
     node_id = node_info["id"]
     id = int(node_id.split(":")[1])
+    vector = embeddings[index]
+    payload = node_info
+
+    point = models.PointStruct(
+        id=id,
+        vector=vector.tolist(),
+        payload=payload,
+    )
+    points.append(point)
+
+    # If we have reached the batch size, upload the points
+    if len(points) == batch_size:
+        operation_info = client.upsert(
+            collection_name=collection_name,
+            wait=True,
+            points=points
+        )
+        # Clear points list after upload
+        points = []
+
+# After all points are created, there might be some points that have not been uploaded yet
+if points:
+    operation_info = client.upsert(
+        collection_name=collection_name,
+        wait=True,
+        points=points
+    )
+    
+batch_size = 100
+points = []
+for index, node_info in enumerate(tqdm(id_to_info.values())):
+
+    # Create a point
+    node_id = node_info["id"]
+    id = index
     vector = embeddings[index]
     payload = node_info
 
