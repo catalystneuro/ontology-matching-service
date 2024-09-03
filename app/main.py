@@ -117,6 +117,7 @@ async def get_ontology_matches(
     ontology: Optional[Literal["neuro_behavior_ontology", "cognitiveatlas"]] = Query(
         "neuro_behavior_ontology", description="Ontology type to use"
     ),
+    number_of_results: int = Query(5, description="Number of results to return"),
 ):
     api_key = os.environ.get("QDRANT_API_KEY")
     if not api_key:
@@ -144,7 +145,7 @@ async def get_ontology_matches(
         raise HTTPException(status_code=500, detail=str(e))
 
     if results_list:
-        payload_list = [result.payload for result in results_list][:5]
+        payload_list = [result.payload for result in results_list][:number_of_results]
 
     else:
         payload_list = []
